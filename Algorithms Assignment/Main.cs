@@ -10,6 +10,7 @@ namespace Algorithms_Assignment
     public class Program
     {
         public static int[] textToSort;
+        public static int key;
         static void Main()
         {
             string[] share1 = System.IO.File.ReadAllLines(@"C:\Users\ellen\source\repos\Algorithms Assignment\Algorithms Assignment\Share_1_256.txt");
@@ -47,13 +48,48 @@ namespace Algorithms_Assignment
                     Console.WriteLine("invalid choice, please input again");
                 }
             }
-            
+
             //bubble sort text
             Sorting sortText = new Sorting();
             int[] ascendingText = sortText.BubbleSortAscending(textToSort);
-            int[] descendingText = sortText.BubbleSortDescending(textToSort);
-            
 
+            //writes every 10th value in the ascending list
+            int count = 0;
+            Console.WriteLine("Every 10th number in ascending order from the chosen array: ");
+            foreach (int item in ascendingText)
+            {
+                if (count == 10)
+                {
+                    Console.WriteLine(item);
+                    count = 0;
+                }
+                else
+                {
+                    count++;
+                }
+            }
+
+            int[] descendingText = sortText.BubbleSortDescending(textToSort);
+
+            //gets user to input a key and checks if it is a valid input
+            bool keyValid = false;
+            while (keyValid == false)
+            {
+                Console.WriteLine("input a number to search for");
+                string userKey = Console.ReadLine();
+                try
+                {
+                    int key = Int32.Parse(userKey);
+                    keyValid = true;
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("not a valid key");
+                }
+            }
+
+            Searching searchtext = new Searching();
+            searchtext.BinarySearch(ascendingText, key);
 
         }
 
