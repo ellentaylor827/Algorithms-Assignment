@@ -78,10 +78,11 @@ namespace Algorithms_Assignment
             {
                 Console.WriteLine("input a number to search for");
                 string userKey = Console.ReadLine();
+                Console.WriteLine("user key = " + userKey);
                 try
                 {
                     key = Int32.Parse(userKey);
-                    Console.WriteLine("keyy: ", key);
+                    Console.WriteLine("keyy: " + key);
                     keyValid = true;
                 }
                 catch (FormatException)
@@ -104,8 +105,6 @@ namespace Algorithms_Assignment
             }
 
         }
-
-
     }
 
 }

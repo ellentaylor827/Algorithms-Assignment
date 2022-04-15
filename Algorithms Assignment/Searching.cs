@@ -11,13 +11,13 @@ namespace Algorithms_Assignment
             int minNum = 0;
             int maxNum = textToSearch.Length - 1;
 
-            Console.WriteLine("key = ", key);
+            Console.WriteLine("key = " + key);
 
             while (minNum <= maxNum)
             {
                 int midNum = (minNum + maxNum) / 2;
                 Console.WriteLine("mid = " + midNum);
-                Console.WriteLine("key = ", key);
+                Console.WriteLine("key = " + key);
 
                 if (key == textToSearch[midNum])
                 {
