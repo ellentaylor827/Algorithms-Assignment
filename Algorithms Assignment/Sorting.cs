@@ -43,8 +43,5 @@ namespace Algorithms_Assignment
             }
             return textToSort;
         }
-
-
-
     }
 }

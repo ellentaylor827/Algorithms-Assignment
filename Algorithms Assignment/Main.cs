@@ -17,13 +17,14 @@ namespace Algorithms_Assignment
             string[] share2 = System.IO.File.ReadAllLines(@"C:\Users\ellen\source\repos\Algorithms Assignment\Algorithms Assignment\Share_2_256.txt");
             string[] share3 = System.IO.File.ReadAllLines(@"C:\Users\ellen\source\repos\Algorithms Assignment\Algorithms Assignment\Share_3_256.txt");
 
+            //converts all items to int values
             int[] text1 = Array.ConvertAll(share1, int.Parse);
             int[] text2 = Array.ConvertAll(share2, int.Parse);
             int[] text3 = Array.ConvertAll(share3, int.Parse);
 
+            //allows the user to choose what array they want to read from
             string userChoice;
             bool valid = false;
-
             while (valid == false)
             {
                 Console.WriteLine("Which array do you select: 1, 2, 3?");
@@ -79,7 +80,8 @@ namespace Algorithms_Assignment
                 string userKey = Console.ReadLine();
                 try
                 {
-                    int key = Int32.Parse(userKey);
+                    key = Int32.Parse(userKey);
+                    Console.WriteLine("keyy: ", key);
                     keyValid = true;
                 }
                 catch (FormatException)
@@ -88,8 +90,18 @@ namespace Algorithms_Assignment
                 }
             }
 
+
+            //binary search for key
             Searching searchtext = new Searching();
-            searchtext.BinarySearch(ascendingText, key);
+            int findKey = searchtext.BinarySearch(ascendingText, key);
+            if (findKey != -1)
+            {
+                Console.WriteLine("Key found in position ", findKey);
+            }
+            else
+            {
+                Console.WriteLine("key not found");
+            }
 
         }
 

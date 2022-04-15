@@ -6,22 +6,22 @@ namespace Algorithms_Assignment
 {
     class Searching
     {
-        public bool foundKey = false;
-        private int midNum = 0;
-
-        public void BinarySearch(int[] textToSearch, int key)
+        public int BinarySearch(int[] textToSearch, int key)
         {
             int minNum = 0;
             int maxNum = textToSearch.Length - 1;
 
+            Console.WriteLine("key = ", key);
+
             while (minNum <= maxNum)
             {
-                midNum = (minNum + maxNum) / 2;
+                int midNum = (minNum + maxNum) / 2;
+                Console.WriteLine("mid = " + midNum);
+                Console.WriteLine("key = ", key);
+
                 if (key == textToSearch[midNum])
                 {
-                    //return midNum;
-                    foundKey = true;
-                    break;
+                    return ++midNum;
                 }
                 else if (key < textToSearch[midNum])
                 {
@@ -32,16 +32,7 @@ namespace Algorithms_Assignment
                     minNum = midNum + 1;
                 }
             }
-
-            if (foundKey == true)
-            {
-                Console.WriteLine("Key found in position" + textToSearch[midNum]);
-            }
-            else
-            {
-                Console.WriteLine("Key not found");
-            }
-
+            return (-1);
         }
     }
 }
