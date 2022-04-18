@@ -78,11 +78,9 @@ namespace Algorithms_Assignment
             {
                 Console.WriteLine("input a number to search for");
                 string userKey = Console.ReadLine();
-                Console.WriteLine("user key = " + userKey);
                 try
                 {
                     key = Int32.Parse(userKey);
-                    Console.WriteLine("keyy: " + key);
                     keyValid = true;
                 }
                 catch (FormatException)
@@ -91,13 +89,12 @@ namespace Algorithms_Assignment
                 }
             }
 
-
             //binary search for key
             Searching searchtext = new Searching();
             int findKey = searchtext.BinarySearch(ascendingText, key);
             if (findKey != -1)
             {
-                Console.WriteLine("Key found in position " + findKey);
+                Console.WriteLine("Key found in position " + ascendingText[findKey]);
             }
             else
             {

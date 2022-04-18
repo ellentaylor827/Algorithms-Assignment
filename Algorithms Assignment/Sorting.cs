@@ -18,14 +18,15 @@ namespace Algorithms_Assignment
                 {
                     if (textToSort[j] > textToSort[j + 1])
                     {
-                        temp = textToSort[j];
-                        textToSort[j] = textToSort[j + 1];
-                        textToSort[j + 1] = temp;
+                        temp = textToSort[j + 1];
+                        textToSort[j + 1] = textToSort[j];
+                        textToSort[j] = temp;
                     }
                 }
             }
             return textToSort;
         }
+
         public int[] BubbleSortDescending(int[] textToSort)
         {
             int temp;
