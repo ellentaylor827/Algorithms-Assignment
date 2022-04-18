@@ -19,6 +19,7 @@ namespace Algorithms_Assignment
 
                 if (key == searchVal)
                 {
+                    //returns ++midNum as it starts from an index of 0
                     return ++midNum;
                 }
                 else if (key > searchVal)
@@ -31,6 +32,33 @@ namespace Algorithms_Assignment
                 }
             }
             return (-1);
+        }
+
+        public List<int> linearSearch(int[] textToSearch, int key, int checkPosition)
+        {
+            List<int> foundPositions = new List<int>();
+            bool startPosition = false;
+
+            //finds the first position of the key
+            while (startPosition == false)
+            {
+                if ( textToSearch[checkPosition] == key)
+                {
+                    startPosition = true;
+                }
+                else
+                {
+                    --checkPosition;
+                }
+            }
+            
+            //adds positions of items until all positions of the key are found
+            while (textToSearch[checkPosition] == key)
+            {
+                foundPositions.Add(checkPosition);
+                ++checkPosition;
+            }
+            return foundPositions;
         }
 
     }
