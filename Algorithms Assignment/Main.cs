@@ -97,7 +97,7 @@ namespace Algorithms_Assignment
             int findKey = searchtext.BinarySearch(ascendingText, key);
             if (findKey != -1)
             {
-                Console.WriteLine("Key found in position ", findKey);
+                Console.WriteLine("Key found in position " + findKey);
             }
             else
             {
