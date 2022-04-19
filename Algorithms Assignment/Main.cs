@@ -13,7 +13,6 @@ namespace Algorithms_Assignment
         public static int key;
         public static bool choseShort; //checks whether the user selected a long or short array
         public static int[] ascendingText;
-        public static int[] descendingText;
 
         static void Main()
         {
@@ -86,29 +85,13 @@ namespace Algorithms_Assignment
             Sorting sortText = new Sorting();
             if (choseShort == true)
             {
-                int[] ascendSort = textToSort;
-                ascendingText = sortText.BubbleSortAscending(ascendSort);
-                descendingText = sortText.BubbleSortDescending(textToSort);
+                //sorts in descending and ascending order
+                sortText.BubbleSortDescending(textToSort);
+                ascendingText = sortText.BubbleSortAscending(textToSort);
             }
             else
             {
                 Console.WriteLine("long sort");
-            }
-
-            //writes every 10th value in the ascending list
-            int count = 0;
-            Console.WriteLine("Every 10th number in ascending order from the chosen array: ");
-            foreach (int item in ascendingText)
-            {
-                if (count == 10)
-                {
-                    Console.WriteLine(item);
-                    count = 0;
-                }
-                else
-                {
-                    count++;
-                }
             }
 
             //gets user to input a key and checks if it is a valid input
@@ -134,7 +117,6 @@ namespace Algorithms_Assignment
 
             if (findKey != -1)
             {
-                Console.WriteLine("Key found in position " + findKey);
                 //finds all positions with that number
                 List<int> findAllPositions = searchText.linearSearch(ascendingText, key, findKey);
                 Console.WriteLine("Key found in positions:");

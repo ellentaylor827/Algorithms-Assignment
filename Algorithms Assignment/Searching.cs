@@ -8,7 +8,6 @@ namespace Algorithms_Assignment
     {
         public int BinarySearch(int[] textToSearch, int key)
         {
-
             int minNum = 0;
             int maxNum = textToSearch.Length - 1;
 
@@ -22,7 +21,7 @@ namespace Algorithms_Assignment
                     //returns ++midNum as it starts from an index of 0
                     return ++midNum;
                 }
-                else if (key > searchVal)
+                else if (key < searchVal)
                 {
                     maxNum = midNum - 1;
                 }
