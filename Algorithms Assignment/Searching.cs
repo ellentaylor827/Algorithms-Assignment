@@ -38,6 +38,7 @@ namespace Algorithms_Assignment
 
         public List<int> linearSearch(int[] textToSearch, int key, int checkPosition)
         {
+            //used for finding all positions in which the key occurs in the array
             List<int> foundPositions = new List<int>();
             bool startPosition = false;
 
@@ -80,9 +81,9 @@ namespace Algorithms_Assignment
                     inListLower = true;
                     closestLower.Add(key);
                     closestLower.Add(textToSearch[key]);
-                    Console.WriteLine(key);
                 }
             }
+            //if nothing has been added to the array, it means there is nothing lower than the key
             if (closestLower.Count == 0)
             {
                 closestLower.Add(-1);
@@ -111,6 +112,7 @@ namespace Algorithms_Assignment
                     closestHigher.Add(textToSearch[key]);
                 }
             }
+            //if nothing has been added to the array, it means there is nothing higher than the key
             if (closestHigher.Count == 0)
             {
                 closestHigher.Add(-1);

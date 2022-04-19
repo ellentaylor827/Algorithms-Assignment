@@ -26,20 +26,8 @@ namespace Algorithms_Assignment
             }
 
             //writes every 10th value in the ascending list
-            int count = 0;
             Console.WriteLine("Every 10th number in ascending order from the chosen array: ");
-            foreach (int item in textToSort)
-            {
-                if (count == 10)
-                {
-                    Console.WriteLine(item);
-                    count = 0;
-                }
-                else
-                {
-                    count++;
-                }
-            }
+            countTenth(textToSort);
             return textToSort;
         }
 
@@ -59,11 +47,37 @@ namespace Algorithms_Assignment
                 }
             }
             //writes every 10th value in the descending list
-            int count = 0;
             Console.WriteLine("Every 10th number in descending order from the chosen array: ");
+            countTenth(textToSort);
+
+        }
+        public void countTenth(int[] textToSort)
+        {
+            int count = 0;
+
+            //every 10th item is printed
             foreach (int item in textToSort)
             {
                 if (count == 10)
+                {
+                    Console.WriteLine(item);
+                    count = 0;
+                }
+                else
+                {
+                    count++;
+                }
+            }
+        }
+
+        public void countFifty(int[] textToSort)
+        {
+            int count = 0;
+
+            //every 50th item is printed
+            foreach (int item in textToSort)
+            {
+                if (count == 50)
                 {
                     Console.WriteLine(item);
                     count = 0;
