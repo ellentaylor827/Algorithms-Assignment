@@ -100,15 +100,23 @@ namespace Algorithms_Assignment
             {
                 Console.WriteLine("input a number to search for");
                 string userKey = Console.ReadLine();
-                try
+                if (Int32.Parse(userKey) < 0)
                 {
-                    key = Int32.Parse(userKey);
-                    keyValid = true;
+                    Console.WriteLine("Input must be greater than 0");
                 }
-                catch (FormatException)
+                else
                 {
-                    Console.WriteLine("not a valid key");
+                    try
+                    {
+                        key = Int32.Parse(userKey);
+                        keyValid = true;
+                    }
+                    catch (FormatException)
+                    {
+                        Console.WriteLine("not a valid key");
+                    }
                 }
+                
             }
 
             //binary search for key to check it exists in the list
@@ -128,6 +136,32 @@ namespace Algorithms_Assignment
             else
             {
                 Console.WriteLine("key not found");
+                List<int> closestHigher = new List<int>();
+                List<int> closestLower = new List<int>();
+
+                closestHigher = searchText.findClosestHigher(ascendingText, key);
+                closestLower = searchText.findClosestLower(ascendingText, key);
+
+                if (closestHigher[0] == -1)
+                {
+                    Console.WriteLine("No higher value in the list");
+                }
+                else
+                {
+                    Console.WriteLine("Next highest value: " + closestHigher[0]);
+                    Console.WriteLine("Position of next highest value: " + closestHigher[1]);
+                }
+
+                if (closestLower[0] == -1)
+                {
+                    Console.WriteLine("No lower value in the list");
+                }
+                else
+                {
+                    Console.WriteLine("Next lower value: " + closestLower[0]);
+                    Console.WriteLine("Position of next lower value: " + closestLower[1]);
+                }
+
             }
         }
     }
