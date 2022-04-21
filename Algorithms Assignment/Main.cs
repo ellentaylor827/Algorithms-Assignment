@@ -10,6 +10,7 @@ namespace Algorithms_Assignment
         public static int key;
         public static bool choseShort; //checks whether the user selected a long or short array
         public static int[] ascendingText;
+        public static int[] descendingText;
 
         static void Main()
         {
@@ -92,13 +93,18 @@ namespace Algorithms_Assignment
                 }
             }
 
-            //bubble sorts
-            Sorting sortText = new Sorting();
+            BubbleSort sortBubble = new BubbleSort();
+            QuickSort sortQuick = new QuickSort();
+            Counts countClass = new Counts();
+
             if (choseShort == true)
             {
+                
                 //sorts in descending and ascending order (short arrays)
-                sortText.BubbleSortDescending(textToSort);
-                ascendingText = sortText.BubbleSortAscending(textToSort);
+                ascendingText = sortQuick.quickSort(textToSort, 0, textToSort.Length - 1);
+                countClass.countTenth(ascendingText);
+                descendingText = sortBubble.bubbleSort(textToSort);
+                countClass.countTenth(descendingText);
             }
             else
             {
