@@ -11,6 +11,7 @@ namespace Algorithms_Assignment
         public static bool choseShort; //checks whether the user selected a long or short array
         public static int[] ascendingText;
         public static int[] descendingText;
+        public static int findKey;
 
         static void Main()
         {
@@ -101,20 +102,22 @@ namespace Algorithms_Assignment
 
             if (choseShort == true)
             {
-                
+
                 //sorts in descending and ascending order (short arrays)
-                ascendingText = sortQuick.quickSort(textToSort, 0, textToSort.Length - 1);
-                countClass.countTenth(ascendingText, 0);
                 descendingText = sortBubble.bubbleSort(textToSort);
                 countClass.countTenth(descendingText, 1);
+                ascendingText = sortQuick.quickSort(textToSort, 0, textToSort.Length - 1);
+                countClass.countTenth(ascendingText, 0);
+                
             }
             else
             {
                 //sorts in descending and ascending order (long arrays)
-                ascendingText = sortHeap.heapSort(textToSort);
-                countClass.countFifty(ascendingText, 0);
                 descendingText = sortMerge.mergeSort(textToSort, 0, textToSort.Length - 1);
                 countClass.countFifty(descendingText, 1);
+                ascendingText = sortHeap.heapSort(textToSort);
+                countClass.countFifty(ascendingText, 0);
+                
             }
 
             //gets user to input a key and checks if it is a valid input
@@ -143,16 +146,24 @@ namespace Algorithms_Assignment
                 
             }
 
-            //binary search for key to check it exists in the list
+            //searchs for key to check it exists in the list
             Searching searchText = new Searching();
-            int findKey = searchText.BinarySearch(ascendingText, key);
+            if (choseShort == true)
+            {
+                findKey = searchText.linearSearch(ascendingText, key);
+            }
+            else
+            {
+                findKey = searchText.binarySearch(ascendingText, key);
+            }
+            
 
             //checks if a number was or wasn't found
             if (findKey != -1)
             {
                 //number is found
                 //finds all positions with that number
-                List<int> findAllPositions = searchText.linearSearch(ascendingText, key, findKey);
+                List<int> findAllPositions = searchText.findKeyPositions(ascendingText, key, findKey);
                 Console.WriteLine("Key found in positions:");
                 foreach (int position in findAllPositions)
                 {

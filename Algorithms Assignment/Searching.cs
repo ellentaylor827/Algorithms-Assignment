@@ -8,7 +8,22 @@ namespace Algorithms_Assignment
     {
         public static int midNum;
         public static int searchVal;
-        public int BinarySearch(int[] textToSearch, int key)
+
+        //used for searching small arrays
+        public int linearSearch(int[] textToSearch, int key)
+        {
+            for (int i = 0; i < textToSearch.Length - 1; i++)
+            {
+                if (textToSearch[i] == key)
+                {
+                    return i;
+                }
+            }
+            return (-1);
+        }
+
+        //used for searching large arrays
+        public int binarySearch(int[] textToSearch, int key)
         {
             int minNum = 0;
             int maxNum = textToSearch.Length - 1;
@@ -36,13 +51,13 @@ namespace Algorithms_Assignment
             return (-1);
         }
 
-        public List<int> linearSearch(int[] textToSearch, int key, int checkPosition)
+        //used for finding all positions in which the key occurs in the array
+        public List<int> findKeyPositions(int[] textToSearch, int key, int checkPosition)
         {
-            //used for finding all positions in which the key occurs in the array
             List<int> foundPositions = new List<int>();
             bool startPosition = false;
 
-            //finds the first position of the key
+            //finds the first position of the key 
             while (startPosition == false)
             {
                 if ( textToSearch[checkPosition] == key)
@@ -75,7 +90,7 @@ namespace Algorithms_Assignment
                 //finds the next number below it
                 --key;
 
-                int findLower = BinarySearch(textToSearch, key); //searches for the new key
+                int findLower = binarySearch(textToSearch, key); //searches for the new key
                 if (findLower != -1)
                 {
                     inListLower = true;
@@ -104,7 +119,7 @@ namespace Algorithms_Assignment
                 //finds the next number above it
                 ++key;
 
-                int findLower = BinarySearch(textToSearch, key); //searches for the new key
+                int findLower = binarySearch(textToSearch, key); //searches for the new key
                 if (findLower != -1)
                 {
                     inListHigher = true;
