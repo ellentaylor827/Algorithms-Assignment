@@ -8,9 +8,17 @@ namespace Algorithms_Assignment
     {
         //contains methods to print every10th/50th values in an array
 
-        public void countTenth(int[] textToSort)
+        public void countTenth(int[] textToSort, int i)
         {
-            Console.WriteLine("every 10th value in this sorted array: ");
+            if (i == 0)
+            {
+                Console.WriteLine("every 10th value in ascending order: ");
+            }
+            else
+            {
+                Console.WriteLine("every 10th value in descending order");
+            }
+            
             int count = 0;
 
             //every 10th item is printed
@@ -27,9 +35,16 @@ namespace Algorithms_Assignment
                 }
             }
         }
-        public void countFifty(int[] textToSort)
+        public void countFifty(int[] textToSort, int i)
         {
-            Console.WriteLine("every 50th value in this sorted array: ");
+            if (i == 0)
+            {
+                Console.WriteLine("every 50th value in ascending order: ");
+            }
+            else
+            {
+                Console.WriteLine("every 50th value in descending order");
+            }
             int count = 0;
 
             //every 50th item is printed

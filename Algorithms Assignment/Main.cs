@@ -96,20 +96,25 @@ namespace Algorithms_Assignment
             BubbleSort sortBubble = new BubbleSort();
             QuickSort sortQuick = new QuickSort();
             Counts countClass = new Counts();
+            HeapSort sortHeap = new HeapSort();
+            MergeSort sortMerge = new MergeSort();
 
             if (choseShort == true)
             {
                 
                 //sorts in descending and ascending order (short arrays)
                 ascendingText = sortQuick.quickSort(textToSort, 0, textToSort.Length - 1);
-                countClass.countTenth(ascendingText);
+                countClass.countTenth(ascendingText, 0);
                 descendingText = sortBubble.bubbleSort(textToSort);
-                countClass.countTenth(descendingText);
+                countClass.countTenth(descendingText, 1);
             }
             else
             {
                 //sorts in descending and ascending order (long arrays)
-                Console.WriteLine("long sort");
+                ascendingText = sortHeap.heapSort(textToSort);
+                countClass.countFifty(ascendingText, 0);
+                descendingText = sortMerge.mergeSort(textToSort, 0, textToSort.Length - 1);
+                countClass.countFifty(descendingText, 1);
             }
 
             //gets user to input a key and checks if it is a valid input
