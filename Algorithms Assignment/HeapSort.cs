@@ -6,6 +6,7 @@ namespace Algorithms_Assignment
 {
     class HeapSort
     {
+        Steps steps = new Steps();
         //sorts large data into ascending order
         public int[] heapSort(int[] textToSort)
         {

@@ -6,7 +6,7 @@ namespace Algorithms_Assignment
 {
     class Counts
     {
-        //contains methods to print every10th/50th values in an array
+        //contains methods to print every 10th/50th values in an array
 
         public void countTenth(int[] textToSort, int i)
         {

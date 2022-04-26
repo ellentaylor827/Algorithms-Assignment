@@ -8,23 +8,31 @@ namespace Algorithms_Assignment
     {
         public static int midNum;
         public static int searchVal;
+        Steps steps = new Steps();
 
         //used for searching small arrays
         public int linearSearch(int[] textToSearch, int key)
         {
+            int steps = 0;
             for (int i = 0; i < textToSearch.Length - 1; i++)
             {
+                steps++;
                 if (textToSearch[i] == key)
                 {
+                    Steps.steps += steps;
+                    Console.WriteLine("Linear search steps: " + steps);
                     return i;
                 }
             }
+            Steps.steps += steps;
+            Console.WriteLine("Linear search steps: " + steps);
             return (-1);
         }
 
         //used for searching large arrays
         public int binarySearch(int[] textToSearch, int key)
         {
+            int steps = 0;
             int minNum = 0;
             int maxNum = textToSearch.Length - 1;
 
@@ -32,22 +40,28 @@ namespace Algorithms_Assignment
             {
                 midNum = (minNum + maxNum) / 2;
                 searchVal = textToSearch[midNum];
-                //Console.WriteLine(searchVal);
 
+                steps++;
                 if (key == searchVal)
                 {
                     //returns ++midNum as it starts from an index of 0
+                    Steps.steps += steps;
+                    Console.WriteLine("Binary search steps: " + steps);
                     return ++midNum;
                 }
                 else if (key < searchVal)
                 {
+                    //halves list by making the new maximum the middle number
                     maxNum = midNum - 1;
                 }
                 else
                 {
+                    //halves list by making the new minimum the middle number
                     minNum = midNum + 1;
                 }
             }
+            Steps.steps += steps;
+            Console.WriteLine("Binary search steps: " + steps);
             return (-1);
         }
 

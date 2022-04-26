@@ -78,13 +78,20 @@ namespace Algorithms_Assignment
                 }
                 else if (userChoice == "mergeShort")
                 {
-                    textToSort = (int[])text1.Concat(text3);
+                    //merges together the two text files
+                    int[] mergeShort = new int[text1.Length + text3.Length];
+                    Array.Copy(text1, mergeShort, text1.Length);
+                    Array.Copy(text3, 0, mergeShort, text1.Length, text3.Length);
+                    textToSort = mergeShort;
                     valid = true;
-                    choseShort = true;
+                    choseShort = false;
                 }
                 else if (userChoice == "mergeLong")
                 {
-                    textToSort = (int[])text1.Concat(text3);
+                    int[] mergeLong = new int[text4.Length + text6.Length];
+                    Array.Copy(text4, mergeLong, text4.Length);
+                    Array.Copy(text6, 0, mergeLong, text4.Length, text6.Length);
+                    textToSort = mergeLong;
                     valid = true;
                     choseShort = false;
                 }
@@ -94,6 +101,7 @@ namespace Algorithms_Assignment
                 }
             }
 
+            //initialises sorts
             BubbleSort sortBubble = new BubbleSort();
             QuickSort sortQuick = new QuickSort();
             Counts countClass = new Counts();
@@ -102,13 +110,11 @@ namespace Algorithms_Assignment
 
             if (choseShort == true)
             {
-
                 //sorts in descending and ascending order (short arrays)
                 descendingText = sortBubble.bubbleSort(textToSort);
                 countClass.countTenth(descendingText, 1);
                 ascendingText = sortQuick.quickSort(textToSort, 0, textToSort.Length - 1);
                 countClass.countTenth(ascendingText, 0);
-                
             }
             else
             {
@@ -117,7 +123,6 @@ namespace Algorithms_Assignment
                 countClass.countFifty(descendingText, 1);
                 ascendingText = sortHeap.heapSort(textToSort);
                 countClass.countFifty(ascendingText, 0);
-                
             }
 
             //gets user to input a key and checks if it is a valid input
@@ -146,7 +151,7 @@ namespace Algorithms_Assignment
                 
             }
 
-            //searchs for key to check it exists in the list
+            //searches for key to check it exists in the list
             Searching searchText = new Searching();
             if (choseShort == true)
             {
@@ -182,7 +187,7 @@ namespace Algorithms_Assignment
                 closestHigher = searchText.findClosestHigher(ascendingText, key);
                 closestLower = searchText.findClosestLower(ascendingText, key);
 
-                //checks if numbers have been found higher/lower
+                //checks if numbers have been found higher
                 if (closestHigher[0] == -1)
                 {
                     Console.WriteLine("No higher value in the list");
@@ -193,6 +198,7 @@ namespace Algorithms_Assignment
                     Console.WriteLine("Position of next highest value: " + closestHigher[1]);
                 }
 
+                //checks if numbers have been found lower
                 if (closestLower[0] == -1)
                 {
                     Console.WriteLine("No lower value in the list");
@@ -202,7 +208,6 @@ namespace Algorithms_Assignment
                     Console.WriteLine("Next lower value: " + closestLower[0]);
                     Console.WriteLine("Position of next lower value: " + closestLower[1]);
                 }
-
             }
         }
     }

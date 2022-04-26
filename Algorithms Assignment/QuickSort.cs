@@ -6,12 +6,15 @@ namespace Algorithms_Assignment
 {
     class QuickSort
     {
+        Steps steps = new Steps();
         //sorts small data into ascending
         public int[] quickSort(int[] textToSort, int left, int right)
         {
+            int steps = 0;
             if (left < right)
             {
-                int pivot = partition(textToSort, left, right);
+                int pivot = partitionArray(textToSort, left, right);
+
                 if (pivot > 1)
                 {
                     quickSort(textToSort, left, pivot - 1);
@@ -25,17 +28,21 @@ namespace Algorithms_Assignment
             return textToSort;
 
         }
-        public int partition(int[] textToSort, int start, int end)
+        public int partitionArray(int[] textToSort, int start, int end)
         {
+            //used to locate the pivot point
+
             int temp;
             int right = textToSort[end];
             int left = start - 1;
 
             for (int i = start; i <= end - 1; i++)
             {
+                //if in the wrong order, it swaps the places
                 if (textToSort[i] <= right)
                 {
                     left++;
+
                     temp = textToSort[left];
                     textToSort[left] = textToSort[i];
                     textToSort[i] = temp;
@@ -45,7 +52,8 @@ namespace Algorithms_Assignment
             temp = textToSort[left + 1];
             textToSort[left + 1] = textToSort[end];
             textToSort[end] = temp;
-            return left + 1;
+
+            return (left + 1);
         }
     }
 }
