@@ -8,7 +8,7 @@ namespace Algorithms_Assignment
     {
         //records amount of steps throughout the program
         public static int steps;
-        public static int stepsTotal;
+        public static int stepsTemp;
 
     }
 }

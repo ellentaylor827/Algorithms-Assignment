@@ -84,7 +84,7 @@ namespace Algorithms_Assignment
                     Array.Copy(text3, 0, mergeShort, text1.Length, text3.Length);
                     textToSort = mergeShort;
                     valid = true;
-                    choseShort = false;
+                    choseShort = true;
                 }
                 else if (userChoice == "mergeLong")
                 {
@@ -112,16 +112,26 @@ namespace Algorithms_Assignment
             {
                 //sorts in descending and ascending order (short arrays)
                 descendingText = sortBubble.bubbleSort(textToSort);
+                Console.WriteLine("Bubble sort steps: " + Steps.stepsTemp);
+                Steps.steps += Steps.stepsTemp;
                 countClass.countTenth(descendingText, 1);
+
                 ascendingText = sortQuick.quickSort(textToSort, 0, textToSort.Length - 1);
+                Console.WriteLine("QuickSort sort steps: " + Steps.stepsTemp);
+                Steps.steps += Steps.stepsTemp;
                 countClass.countTenth(ascendingText, 0);
             }
             else
             {
                 //sorts in descending and ascending order (long arrays)
                 descendingText = sortMerge.mergeSort(textToSort, 0, textToSort.Length - 1);
+                Console.WriteLine("Merge sort steps: " + Steps.stepsTemp);
+                Steps.steps += Steps.stepsTemp;
                 countClass.countFifty(descendingText, 1);
+
                 ascendingText = sortHeap.heapSort(textToSort);
+                Console.WriteLine("Heap sort steps: " + Steps.stepsTemp);
+                Steps.steps += Steps.stepsTemp;
                 countClass.countFifty(ascendingText, 0);
             }
 
@@ -209,6 +219,7 @@ namespace Algorithms_Assignment
                     Console.WriteLine("Position of next lower value: " + closestLower[1]);
                 }
             }
+            Console.WriteLine("Total amount of steps: " + Steps.steps);
         }
     }
 

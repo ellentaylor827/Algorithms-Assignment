@@ -29,8 +29,7 @@ namespace Algorithms_Assignment
                     }
                 }
             }
-            Steps.steps += steps;
-            Console.WriteLine("Bubble sort steps: " + steps);
+            Steps.stepsTemp += steps;
             return textToSort;
         }
     }

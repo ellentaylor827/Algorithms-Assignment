@@ -6,11 +6,10 @@ namespace Algorithms_Assignment
 {
     class QuickSort
     {
-        Steps steps = new Steps();
+        public static int steps = 0;
         //sorts small data into ascending
         public int[] quickSort(int[] textToSort, int left, int right)
         {
-            int steps = 0;
             if (left < right)
             {
                 int pivot = partitionArray(textToSort, left, right);
@@ -24,7 +23,7 @@ namespace Algorithms_Assignment
                     quickSort(textToSort, pivot + 1, right);
                 }
             }
-
+            Steps.stepsTemp = steps;
             return textToSort;
 
         }
@@ -42,13 +41,13 @@ namespace Algorithms_Assignment
                 if (textToSort[i] <= right)
                 {
                     left++;
-
+                    steps++;
                     temp = textToSort[left];
                     textToSort[left] = textToSort[i];
                     textToSort[i] = temp;
                 }
             }
-
+            steps++;
             temp = textToSort[left + 1];
             textToSort[left + 1] = textToSort[end];
             textToSort[end] = temp;

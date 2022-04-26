@@ -7,7 +7,7 @@ namespace Algorithms_Assignment
     //sorts large data into descending
     class MergeSort
     {
-        Steps steps = new Steps();
+        public static int steps = 0;
         public int[] mergeSort(int[] textToSort, int left, int right)
         {
             if (left < right)
@@ -19,7 +19,7 @@ namespace Algorithms_Assignment
 
                 merge(textToSort, left, middle, right);
             }
-
+            Steps.stepsTemp = steps;
             return textToSort;
         }
 
@@ -36,6 +36,7 @@ namespace Algorithms_Assignment
             int j = 0;
             for (int z = left; z < right + 1; z++)
             {
+                steps++;
                 //if left array is full, it adds to the right array
                 if (i == leftArray.Length)
                 {

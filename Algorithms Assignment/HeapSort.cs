@@ -6,7 +6,7 @@ namespace Algorithms_Assignment
 {
     class HeapSort
     {
-        Steps steps = new Steps();
+        public static int steps = 0;
         //sorts large data into ascending order
         public int[] heapSort(int[] textToSort)
         {
@@ -19,13 +19,14 @@ namespace Algorithms_Assignment
             //takes elements from the heap
             for (int i = length - 1; i > 0; i--)
             {
+                steps++;
                 int temp = textToSort[0];
                 textToSort[0] = textToSort[i];
                 textToSort[i] = temp;
 
                 makeHeap(textToSort, i, 0);
             }
-
+            Steps.stepsTemp = steps;
             return textToSort;
         }
         public void makeHeap(int[] textToSort, int length, int i)
@@ -45,6 +46,7 @@ namespace Algorithms_Assignment
             //if the biggest number isn't the root
             if (largestValue != i)
             {
+                steps++;
                 int temp = textToSort[i];
                 textToSort[i] = textToSort[largestValue];
                 textToSort[largestValue] = temp;
