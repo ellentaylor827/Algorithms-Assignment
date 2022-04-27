@@ -76,11 +76,12 @@ namespace Algorithms_Assignment
             {
                 if ( textToSearch[checkPosition] == key)
                 {
-                    startPosition = true;
+                    --checkPosition;
                 }
                 else
                 {
-                    --checkPosition;
+                    startPosition = true;
+                    ++checkPosition;
                 }
             }
             

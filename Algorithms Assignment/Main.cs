@@ -31,6 +31,13 @@ namespace Algorithms_Assignment
             int[] text5 = Array.ConvertAll(long2, int.Parse);
             int[] text6 = Array.ConvertAll(long3, int.Parse);
 
+            //initialises sorts
+            BubbleSort sortBubble = new BubbleSort();
+            QuickSort sortQuick = new QuickSort();
+            Counts countClass = new Counts();
+            HeapSort sortHeap = new HeapSort();
+            MergeSort sortMerge = new MergeSort();
+
 
             //allows the user to choose what array they want to read from
             string userChoice;
@@ -78,7 +85,7 @@ namespace Algorithms_Assignment
                 }
                 else if (userChoice == "mergeShort")
                 {
-                    //merges together the two text files
+                    //merges together the two short text files
                     int[] mergeShort = new int[text1.Length + text3.Length];
                     Array.Copy(text1, mergeShort, text1.Length);
                     Array.Copy(text3, 0, mergeShort, text1.Length, text3.Length);
@@ -88,6 +95,7 @@ namespace Algorithms_Assignment
                 }
                 else if (userChoice == "mergeLong")
                 {
+                    //merges together the two short text files
                     int[] mergeLong = new int[text4.Length + text6.Length];
                     Array.Copy(text4, mergeLong, text4.Length);
                     Array.Copy(text6, 0, mergeLong, text4.Length, text6.Length);
@@ -100,13 +108,6 @@ namespace Algorithms_Assignment
                     Console.WriteLine("invalid choice, please input again");
                 }
             }
-
-            //initialises sorts
-            BubbleSort sortBubble = new BubbleSort();
-            QuickSort sortQuick = new QuickSort();
-            Counts countClass = new Counts();
-            HeapSort sortHeap = new HeapSort();
-            MergeSort sortMerge = new MergeSort();
 
             if (choseShort == true)
             {
